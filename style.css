@@ -1,0 +1,126 @@
+:root {
+    --accent-primary: #004376;
+    --accent-secondary: #002948;
+    --body-text-primary: #475D88;
+    --body-text-secondary: #34425C;
+    --body-text-tertiary: #7A7A7A;
+    --nav-link-text: #4F4F4F;
+    --surface-primary: #ECECEC;
+    --surface-secondary: #CECECE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    top: 0;
+    left: 0;
+    z-index: 99;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 48px;
+    width: 100%;
+    border-bottom: 1px solid var(--surface-secondary);
+    background: #fff;
+    
+    .logo {
+        img {
+            height: 36px;
+        }
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .links {
+        display: flex;
+        gap: 32px;
+        font-family: 'Red hat text';
+        font-weight: 500;
+        
+        a {
+            text-decoration: none;
+            opacity: .75;
+            color: var(--nav-link-text);
+            transition: 100ms ease;
+
+            &.active {
+                position: relative;
+                font-weight: 700;
+                opacity: 1;
+                color: var(--accent-secondary);
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--accent-secondary);
+                    bottom: 0;
+                }
+            }
+
+            &:hover {
+                opacity: 1;
+                color: var(--accent-secondary);
+            }
+        }
+    }
+}
+
+@media (width < 768px) {
+    .menu-btn {
+        display: block !important;
+        position: absolute;
+        right: 48px;
+
+        svg {
+            scale: 1.5;
+            fill: var(--accent-primary);
+        }
+    }
+
+    .logo {
+        translate: -12px 0;
+    }
+
+    .links-container {
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        right: 0;
+        top: 72.8px;
+        display: none;
+        opacity: 0;
+        border-bottom: 1px solid var(--surface-secondary);
+        background: #fff;
+
+        transition: opacity 200ms ease;
+        
+        .links {
+            width: 100%;
+            gap: 0;
+            flex-direction: column;
+
+            a {
+                font-size: 18px;
+                padding: 20px 32px;
+                
+                &:not(:last-child) {
+                    border-bottom: 1px solid #e7e7e7;
+                }
+            }
+
+            a.active::after {
+                display: none;
+            }
+        }
+    }
+}
