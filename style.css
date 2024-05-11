@@ -38,6 +38,11 @@
         display: none;
     }
 
+    .links-container {
+        display: block;
+        opacity: 1;
+    }
+
     .links {
         display: flex;
         gap: 32px;
@@ -90,36 +95,42 @@
     .logo {
         translate: -12px 0;
     }
-
-    .links-container {
-        position: absolute;
-        z-index: 99;
-        width: 100%;
-        right: 0;
-        top: 72.8px;
-        display: none;
-        opacity: 0;
-        border-bottom: 1px solid var(--surface-secondary);
-        background: #fff;
-
-        transition: opacity 200ms ease;
-        
-        .links {
+    .nav-bar{
+        .links-container {
+            position: absolute;
+            z-index: 99;
             width: 100%;
-            gap: 0;
-            flex-direction: column;
+            right: 0;
+            top: 72.8px;
+            display: none;
+            opacity: 0;
+            border-bottom: 1px solid var(--surface-secondary);
+            background: #fff;
 
-            a {
-                font-size: 18px;
-                padding: 20px 32px;
-                
-                &:not(:last-child) {
-                    border-bottom: 1px solid #e7e7e7;
+            transition: opacity 200ms ease;
+            
+            .links {
+                width: 100%;
+                gap: 0;
+                flex-direction: column;
+
+                a {
+                    font-size: 18px;
+                    padding: 20px 32px;
+                    
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #e7e7e7;
+                    }
+                }
+
+                a.active::after {
+                    display: none;
                 }
             }
 
-            a.active::after {
-                display: none;
+            &.open {
+                display: flex;
+                opacity: 1;
             }
         }
     }

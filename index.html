@@ -41,19 +41,7 @@
         let menuState = 0;
 
         menuBtn.onclick = () => {
-            if(!menuState) {
-                linksContainer.style.setProperty("display", "flex")
-                setTimeout(() => {
-                    linksContainer.style.setProperty("opacity", "1")
-                }, 0);
-                menuState = 1
-            } else {
-                linksContainer.style.setProperty("opacity", "0")
-                setTimeout(() => {
-                    linksContainer.style.setProperty("display", "none")
-                }, 200);
-                menuState = 0
-            }
+            linksContainer.classList.toggle("open")
         }
     </script>
 </body>
