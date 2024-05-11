@@ -35,6 +35,7 @@
         <a href="#" class="product-btn">Our Products</a>
     </div>
 
+    <!-- Mobile menu functionality -->
     <script>
         const menuBtn = document.querySelector(".menu-btn")
         const linksContainer = document.querySelector(".links-container")
@@ -42,6 +43,18 @@
 
         menuBtn.onclick = () => {
             linksContainer.classList.toggle("open")
+        }
+    </script>
+
+    <!-- Nav bar scroll -->
+    <script>
+        const nav = document.querySelector(".nav-bar")
+        window.onscroll = () => {
+            if(window.scrollY > 0) {
+                nav.classList.add("scrolled")
+            } else {
+                nav.classList.remove("scrolled")
+            }
         }
     </script>
 </body>

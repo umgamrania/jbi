@@ -15,6 +15,20 @@
     box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid #fff;
+    background: var(--body-text-tertiary);
+}
+
+body {
+    min-height: 200vh;
+}
+
 .nav-bar {
     top: 0;
     left: 0;
@@ -26,8 +40,16 @@
     padding: 0 48px;
     height: 72px;
     width: 100%;
-    border-bottom: 1px solid var(--surface-secondary);
-    background: #fff;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+
+    transition: background-color 200ms ease,
+        border 200ms ease;
+
+    &.scrolled {
+        background: #fff;
+        border-bottom: 1px solid var(--surface-secondary);
+    }
     
     .logo {
         img {
@@ -135,4 +157,11 @@
             }
         }
     }
+}
+
+.hero {
+    height: 100svh;
+    background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url("img/stone-crusher.jpg");
+    background-size: cover;
+    background-position: center;
 }
