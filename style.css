@@ -73,6 +73,64 @@ body {
         gap: 32px;
         font-family: 'Red hat text';
         font-weight: 500;
+
+        .link {
+            position: relative;
+            list-style: none;
+
+            &:has(.sub-menu):focus-within .sub-menu {
+                display: block;
+                background: #0f0;
+            }
+
+            .sub-menu {
+                display: none;
+                right: -24px;
+                top: calc(68px - 100%);
+                width: auto;
+                position: absolute;
+                
+                ul {
+                    list-style: none;
+                    background: #fff;
+                    outline: 1px solid var(--surface-primary);
+
+                    li {
+                        &:has(.product-list):focus-within {
+                            & > a {
+                                color: var(--accent-secondary);
+                            }
+
+                            .product-list {
+                                display: block;
+                            }
+                        }
+
+                        a {
+                            display: block;
+                            padding: 16px 24px;
+                            text-wrap: nowrap;
+                        }
+
+                        .product-list {
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            right: 100%;
+                        }
+
+                        &:nth-child(2) .product-list {
+                            top: 33%;
+                        }
+
+                        &:nth-child(3) .product-list {
+                            top: 66%;
+                        }
+                    }
+
+                }
+            }
+        }
         
         a {
             text-decoration: none;
@@ -428,6 +486,8 @@ footer {
             position: absolute;
             z-index: 99;
             width: 100%;
+            max-height: calc(100vh - 72px);
+            overflow-y: scroll;
             right: 0;
             top: 72px;
             display: none;
@@ -442,10 +502,46 @@ footer {
                 gap: 0;
                 flex-direction: column;
 
-                a {
-                    font-size: 18px;
-                    padding: 20px 32px;
-                    
+                .link {
+                    &:has(.sub-menu):focus-within .sub-menu {
+                        height: auto;
+                    }
+
+                    .sub-menu {
+                        display: block;
+                        position: initial;
+                        height: 0;
+                        overflow: hidden;
+
+                        ul li {
+                            a {
+                                padding-inline: 48px;
+                            }
+
+                            &:has(.product-list):focus-within .product-list {
+                                height: auto;
+                            }
+
+                            .product-list {
+                                display: block;
+                                position: relative;
+                                left: 0;
+                                height: 0;
+                                overflow: hidden;
+
+                                ul li a {
+                                    padding-inline: 64px;
+                                }
+                            }
+                        }
+                    }
+
+                    a {
+                        font-size: 18px;
+                        display: block;
+                        padding: 20px 32px;
+                    }
+
                     &:not(:last-child) {
                         border-bottom: 1px solid #e7e7e7;
                     }
