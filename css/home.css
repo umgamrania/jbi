@@ -1,0 +1,313 @@
+.hero {
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(255, 255, 255, .8), rgba(255, 255, 255, .8)), url("../img/stone-crusher.jpg");
+    background-size: cover;
+    background-position: center;
+
+    h1 {
+        font-family: "Red hat display";
+        font-weight: 1000;
+        font-size: 80px;
+        color: #2f2f2f;
+    }
+
+    p {
+        width: 50%;
+        margin-top: 16px;
+        font-size: 16px;
+        text-align: center;
+        font-weight: 500;
+        color: #555555;
+    }
+
+    a {
+        position: relative;
+        margin-top: 64px;
+        color: var(--accent-secondary);
+        font-size: 22px;
+        text-decoration: none;
+        font-weight: 500;
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--accent-secondary);
+            bottom: -2px;
+        }
+    }
+}
+
+section {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin-bottom: 48px;
+        font-size: 36px;
+        background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.products {
+    scroll-margin-top: 100px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 80%;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        max-width: calc(33% - 40px);
+        
+        .image {
+            height: 200px;
+            width: 100%;
+            border-radius: 24px;
+            background: var(--surface-primary);
+        }
+
+        .text {
+            margin-top: 16px;
+            margin-left: 4px;
+
+            h2 {
+                font-size: 22px;
+                color: var(--body-text-primary);
+            }
+
+            p {
+                opacity: .7;
+                font-size: 16px;
+                font-weight: 500;
+                margin-top: 4px;
+                color: var(--body-text-secondary);
+            }
+
+            ul {
+                margin-left: 16px;
+                margin-top: 8px;
+                opacity: .7;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.7;
+                color: var(--body-text-secondary);;
+            }
+        }
+
+        .btn {
+            margin-top: 20px;
+
+            a {
+                display: inline-block;
+                padding: 12px 32px;
+                text-decoration: none;
+                border-radius: 50px;
+                font-weight: 500;
+                font-size: 14px;
+                color: #fff;
+                background: var(--body-text-primary);
+            }
+        }
+    }
+}
+
+.why-us {
+    .icon-card-container {
+        display: flex;
+        gap: 12px;
+
+        .icon-card {
+            flex: 1;
+            min-width: 160px;
+            text-align: center;
+
+            svg {
+                height: 48px;
+                width: 48px;
+                fill: var(--body-text-primary);
+            }
+
+            p {
+                margin-top: 12px;
+                font-size: 18px;
+                font-weight: 500;
+                color: var(--accent-primary);
+            }
+        }
+    }
+}
+
+.gallery {
+    scroll-margin-top: 100px;
+    .gallery-grid {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        width: 50%;
+
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            flex: 1;
+
+            img {
+                border-radius: 12px;
+                aspect-ratio: 16 / 9;
+                background: #d6d6d6;
+            }
+        }
+    }
+}
+
+.contact-us {
+    scroll-margin-top: 100px;
+    .content {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        gap: 24px;
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            text-align: right;
+
+            .detail {
+                h2 {
+                    font-size: 24px;
+                    font-weight: 700;
+                }
+
+                h3 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: var(--body-text-tertiary);
+                }
+            }
+        }
+
+        .seperator {
+            width: 1px;
+            background: #bbb;
+        }
+
+        .form {
+            * {
+                font: inherit;
+            }
+
+            width: 30vw;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            input, textarea {
+                outline: none;
+                border: none;
+                padding: 12px 16px;
+                border-radius: 12px;
+                background: var(--surface-primary);
+            }
+
+            textarea {
+                resize: vertical;
+                max-height: 200px;
+            }
+
+            .btn {
+                a {
+                    float: right;
+                    display: block;
+                    padding: 12px 32px;
+                    text-decoration: none;
+                    border-radius: 50px;
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #fff;
+                    background: var(--body-text-primary);
+                }
+            }
+        }
+    }
+}
+
+
+@media(width < 768px) {
+
+    .hero {
+        h1 {
+            font-size: 58px;
+            text-align: center;
+        }
+
+        p {
+            width: 70%;
+        }
+    }
+
+    .card-container {
+        width: 70%;
+        flex-direction: column;
+
+        .card {
+            max-width: 100%;
+        }
+    }
+
+    .why-us{
+        .icon-card-container {
+            gap: 36px;
+            flex-direction: column;
+        }
+    }
+
+    .gallery {
+        .gallery-grid{
+            width: 70%;
+            flex-direction: column;
+
+            .col {
+                width: 100%;
+            }
+        }
+    }
+
+    .contact-us {
+        .content {
+            width: 70%;
+            flex-direction: column;
+
+            .details {
+                .detail {
+                    text-align: center;
+                }
+            }
+
+            .form {
+                width: 100%;
+            }
+        }
+    }
+
+}
