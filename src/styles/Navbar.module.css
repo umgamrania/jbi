@@ -1,0 +1,218 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 0px 42px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    font-family: "Red hat text";
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    transition: .2s ease;
+
+    &.scrolled {
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+    }
+
+    .logo img {
+        height: 64px;
+    }
+
+    .menuBtn {
+        display: none;
+        svg { scale: 1.5; }
+    }
+
+    .linksContainer {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        max-height: calc(100vh - 114px);
+
+        ul {
+            box-shadow: 0px 6px 20px 0px #8888883d;
+        }
+
+        & > li {
+            position: relative;
+            padding: 44px 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+            
+            a {
+                position: relative;
+                color: #5b5b5b;
+                font-size: 20px;
+                font-weight: 500;
+                text-decoration: none;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            &.active > a {
+                position: relative;
+                font-weight: 700;
+                color: #000;
+    
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    height: 3px;
+                    width: 100%;
+                    margin-top: 5px;
+                    background: #000;
+                }
+            }
+        } 
+    }
+}
+
+.productTypeList {
+    display: none;
+    flex-direction: column;
+    text-wrap: nowrap;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 999;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    list-style: none;
+
+    &:focus-within {
+        display: flex;
+    }
+
+    li {
+        position: relative;
+        padding: 16px 22px;
+        font-size: 18px;
+
+        &:hover {
+            cursor: pointer;
+            background: #eee;
+        }
+
+        .productList {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            right: 100%;
+            top: -1px;
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            list-style: none;
+            
+            li {
+                padding: 0;
+            }
+
+            a {
+                display: block;
+                padding: 16px 22px;
+            }
+        }
+
+        &:focus-within .productList {
+            display: flex;
+        }
+    }
+}
+
+.productLink {
+    position: relative;
+}
+
+.productLink:focus-within .productTypeList {
+    display: flex;
+}
+
+@media(width < 780px) {
+    nav {
+        height: 114px;
+
+        .linksContainer {
+            display: none;
+            position: fixed;
+            overflow-y: scroll;
+            left: 0;
+            top: 114px;
+            width: 100%;
+            gap: 0;
+            flex-direction: column;
+
+            ul {
+                box-shadow: none;
+            }
+
+            & > li {
+                padding: 28px 32px;
+                border-bottom: 1px solid #dbdbdb;
+
+                &.active {
+                    a::after {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            &.mobileMenuVisible {
+                display: flex;
+                background: #fff;
+            }
+        }
+
+        .menuBtn {
+            display: block;
+        }
+    }
+
+    .productTypeList{
+        display: none !important;
+        position: relative;
+        margin-top: 22px;
+        border: none;
+
+        li {
+            background: #fff !important;
+
+            ul {
+                display: none !important;
+            }
+
+            &:focus-within ul {
+                display: flex !important;
+            }
+
+            .productList {
+                position: relative;
+                inset: 0;
+                border: none;
+                margin-top: 22px;
+            }
+
+            &.active {
+                a::after {
+                    opacity: 0;
+                }
+            }
+
+            &:focus-within .productList {
+                display: flex;
+            }
+        }
+    }
+
+    .productLink:focus-within .productTypeList {
+        display: flex !important;
+    }
+}

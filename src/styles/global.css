@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+    --accent-primary: #004376;
+    --accent-secondary: #002948;
+    --body-text-primary: #475D88;
+    --body-text-secondary: #34425C;
+    --body-text-tertiary: #7A7A7A;
+    --nav-link-text: #4F4F4F;
+    --surface-primary: #ECECEC;
+    --surface-secondary: #CECECE;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid #fff;
+    background: var(--body-text-tertiary);
+}
+
+body {
+    font-family: "Red hat text";
+}
+
+section {
+    margin-top: 100px;
+    margin-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin-bottom: 48px;
+        font-family: "Red hat Text";
+        font-weight: 1000;
+        font-size: 48px;
+        text-align: center;
+        background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+        background-clip: text;
+        color: transparent;
+    }
+}

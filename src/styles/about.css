@@ -1,0 +1,32 @@
+.about-content {
+    margin-top: 180px;
+    width: 60%;
+    margin-inline: 20%;
+
+    h1 {
+        font-size: 48px;
+        
+    }
+    
+    .mission-heading {
+        margin-top: 48px;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 150%;
+        margin-top: 22px;
+        color: var(--body-text-secondary);
+    }
+
+    .mission-text {
+        padding-bottom: 120px;
+    }
+}
+
+@media(width < 768px) {
+    .about-content {
+        width: 80%;
+        margin-inline: 10%;
+    }
+}
